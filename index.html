@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d20">
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="weather-app">
+        <header class="app-header">
+            <h1>Weather Forecast</h1>
+            <p>Current conditions and the days ahead</p>
+        </header>
+
+        <form class="search-form" id="search-form">
+            <input
+                type="text"
+                id="city-input"
+                placeholder="Enter a city..."
+                aria-label="Enter a city name"
+                autocomplete="off"
+                required
+            >
+            <button type="submit" id="search-button">Search</button>
+        </form>
+
+        <div id="error-message" class="error-message"
+             role="alert" hidden></div>
+
+        <section class="recent-searches" id="recent-section" hidden>
+            <span class="section-label">Recent searches</span>
+            <div id="recent-cities" class="recent-cities"></div>
+        </section>
+
+        <section class="weather-display" id="weather-display" aria-live="polite" hidden>
+            <p class="section-label">CURRENT WEATHER</p>
+            <h2 id="city-name">Search for a city</h2>
+
+            <img id="weather-icon" alt="" width="100" height="100" hidden>
+
+            <p id="temperature" class="temperature">--°C</p>
+            <p id="weather-condition">Weather conditions will appear here</p>
+            <p class="feels-line">Feels like <span id="feels-like">--°C</span></p>
+
+            <div class="weather-details">
+                <article class="detail-item">
+                    <span class="detail-icon" aria-hidden="true">💧</span>
+                    <p>Humidity</p>
+                    <strong id="humidity">--%</strong>
+                </article>
+                <article class="detail-item">
+                    <span class="detail-icon" aria-hidden="true">🍃</span>
+                    <p>Wind speed</p>
+                    <strong id="wind-speed">-- km/h</strong>
+                </article>
+            </div>
+        </section>
+
+        <section class="sun-times">
+            <article class="sun-card">
+                <span aria-hidden="true">🌅</span>
+                <div>
+                    <p>Sunrise</p>
+                    <strong id="sunrise">--:--</strong>
+                </div>
+            </article>
+            <article class="sun-card">
+                <span aria-hidden="true">🌇</span>
+                <div>
+                    <p>Sunset</p>
+                    <strong id="sunset">--:--</strong>
+                </div>
+            </article>
+        </section>
+
+        <section class="moon-card">
+            <div>
+                <p class="section-label">LUNAR CYCLE</p>
+                <h2 id="moon-phase">Moon phase</h2>
+                <p id="moon-date">Based on today's date</p>
+            </div>
+            <span id="moon-emoji" class="moon-emoji" aria-hidden="true">🌙</span>
+        </section>
+
+        <section class="forecast-section">
+            <p class="section-label">UPCOMING WEATHER</p>
+            <h2>5-day forecast</h2>
+            <div id="forecast-list" class="forecast-list">
+                <p class="forecast-placeholder">Search for a city to load the forecast.</p>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            Weather data provided by OpenWeatherMap
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
